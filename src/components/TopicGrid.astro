@@ -1,0 +1,27 @@
+---
+import { topics } from "@/data/topics";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const locale = Astro.currentLocale ?? "en";
+---
+
+<section class="border-border border-b py-8">
+  <h2 class="mb-5 text-2xl font-semibold">Explore topics</h2>
+
+  <nav
+    aria-label="Blog topics"
+    class="grid grid-cols-1 gap-3 sm:grid-cols-2"
+  >
+    {
+      topics.map(topic => (
+        <a
+          href={getRelativeLocaleUrl(locale, `topics/${topic.slug}`)}
+          class="border-border hover:text-accent rounded-lg border p-4 transition-colors"
+        >
+          <h3 class="text-lg font-semibold">{topic.title}</h3>
+          <p class="mt-1 text-sm">{topic.description}</p>
+        </a>
+      ))
+    }
+  </nav>
+</section>

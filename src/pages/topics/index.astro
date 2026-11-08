@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import TopicGrid from "@/components/TopicGrid.astro";
+import config from "@/config";
+---
+
+<Layout title={`Topics | ${config.site.title}`}>
+  <Header />
+  <main id="main-content" class="app-layout py-8">
+    <h1 class="text-3xl font-bold">Topics</h1>
+    <p class="mt-2">Explore articles by subject.</p>
+    <TopicGrid />
+  </main>
+  <Footer />
+</Layout>
